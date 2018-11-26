@@ -19,7 +19,7 @@ class VagasSpider(scrapy.Spider):
         for vaga in response.css('a.link-detalhes-vaga'):
             yield {
                 'vaga': vaga.css('a::attr(title)').extract_first(),
-                'nivel': vaga.css('span.nivelVaga::text').extract_firs(),
+                'nivel': vaga.css('span.nivelVaga::text').extract_first(),
                 'empresa': vaga.css('span.emprVaga::text').extract_first(),
                 'link': vaga.css('a::attr(href)').extract(),
             }
