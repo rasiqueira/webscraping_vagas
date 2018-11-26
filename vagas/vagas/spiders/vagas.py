@@ -16,7 +16,7 @@ class VagasSpider(scrapy.Spider):
     ]
   
     def parse(self, response):
-        for vaga in response.css('a.link-detalhes-vaga'):
+        for vaga in response.css('div.informacoes-header'):
             yield {
                 'vaga': vaga.css('a::attr(title)').extract_first(),
                 'nivel': vaga.css('span.nivelVaga::text').extract_first(),
